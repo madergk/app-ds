@@ -2,7 +2,6 @@ import './App.css';
 import { useState } from 'react';
 import {
   AppBar,
-  Toolbar,
   Button,
   TextField,
   Typography,
@@ -25,6 +24,7 @@ import {
   theme,
 } from '@mrs/components';
 import { ThemeProvider } from '@mui/material/styles';
+import { Toolbar } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
