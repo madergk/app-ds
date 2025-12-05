@@ -50,7 +50,7 @@ function App() {
         <Divider style={{ margin: '2rem 0' }} />
 
         {/* Buttons Section */}
-        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+        <Paper elevation={6} style={{ padding: '2rem', marginBottom: '2rem' }}>
           <Typography variant="h4" gutterBottom>
             Buttons
           </Typography>
