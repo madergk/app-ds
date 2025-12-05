@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import {
-  AppBar,  
+  AppBar,
   Toolbar,
   Button,
   TextField,
@@ -19,6 +19,9 @@ import {
   LinearProgress,
   Accordion,
   Icon,
+  Stepper,
+  FileUpload,
+  Link,
   theme,
 } from '@mrs/components';
 import { ThemeProvider } from '@mui/material/styles';
@@ -28,6 +31,8 @@ function App() {
   const [checked, setChecked] = useState(true);
   const [selectedValue, setSelectedValue] = useState('option1');
   const [selectValue, setSelectValue] = useState('');
+  const [activeStep, setActiveStep] = useState(0);
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -204,6 +209,81 @@ function App() {
                 This is the content of section 3. Accordions are great for FAQs!
               </Typography>
             </Accordion>
+          </div>
+        </Paper>
+
+        {/* Stepper Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Stepper
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            <Stepper
+              activeStep={activeStep}
+              steps={[
+                { label: 'Account Details', description: 'Enter your information' },
+                { label: 'Payment Info', description: 'Add payment method' },
+                { label: 'Confirmation', description: 'Review and confirm' },
+              ]}
+            />
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem' }}>
+              <Button
+                variant="outlined"
+                disabled={activeStep === 0}
+                onClick={() => setActiveStep((prev) => prev - 1)}
+              >
+                Back
+              </Button>
+              <Button
+                variant="contained"
+                disabled={activeStep === 2}
+                onClick={() => setActiveStep((prev) => prev + 1)}
+              >
+                {activeStep === 2 ? 'Finish' : 'Next'}
+              </Button>
+            </div>
+          </div>
+        </Paper>
+
+        {/* File Upload Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            File Upload
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            <FileUpload
+              accept="image/*,.pdf"
+              multiple
+              maxSize={5242880}
+              onChange={(files) => setUploadedFiles(files)}
+              value={uploadedFiles}
+            />
+            {uploadedFiles.length > 0 && (
+              <Typography variant="body2" color="textSecondary" style={{ marginTop: '1rem' }}>
+                {uploadedFiles.length} file(s) selected
+              </Typography>
+            )}
+          </div>
+        </Paper>
+
+        {/* Links Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Links
+          </Typography>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+            <Link href="#" color="primary">
+              Primary Link
+            </Link>
+            <Link href="#" color="secondary">
+              Secondary Link
+            </Link>
+            <Link href="#" underline="none">
+              Link without underline
+            </Link>
+            <Link href="#" underline="always">
+              Link always underlined
+            </Link>
           </div>
         </Paper>
 
