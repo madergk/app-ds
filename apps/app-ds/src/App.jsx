@@ -1,6 +1,8 @@
 import './App.css';
 import { useState } from 'react';
 import {
+  AppBar,  
+  Toolbar,
   Button,
   TextField,
   Typography,
@@ -30,9 +32,16 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            MRS UI Design System
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
-        <Typography variant="h1" gutterBottom>
-          MRS Design System
+        <Typography variant="h3" gutterBottom>
+          MRS UI Design System
         </Typography>
         <Typography variant="body1" color="textSecondary" paragraph>
           Comprehensive Component Library built on Material-UI
@@ -90,9 +99,9 @@ function App() {
               value={selectValue}
               onChange={(e) => setSelectValue(e.target.value)}
               options={[
-                { value: 'us', label: 'United States' },
-                { value: 'uk', label: 'United Kingdom' },
-                { value: 'ca', label: 'Canada' },
+                { value: 'ar', label: 'Argentina' },
+                { value: 'fr', label: 'Segundo' },
+                { value: 'cl', label: 'Chile' },
               ]}
               fullWidth
             />
