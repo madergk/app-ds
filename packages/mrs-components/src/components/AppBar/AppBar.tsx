@@ -122,14 +122,14 @@ interface AccountStackProps {
 const AccountStack: React.FC<AccountStackProps> = ({
   userName = 'Pablo Salved',
   accountType = 'Cuenta principal',
-  userInitials: _userInitials = 'P',
+  userInitials = 'P',
 }) => {
   return (
     <Box
       sx={{
         display: 'flex',
         alignItems: 'center',
-        gap: primitiveSpacing[3], // 24px
+        gap: primitiveSpacing[2], // 16px gap between text and avatar
         padding: '4px',
       }}
     >
@@ -167,6 +167,25 @@ const AccountStack: React.FC<AccountStackProps> = ({
           {accountType}
         </Typography>
       </Box>
+      {/* Avatar with user initials */}
+      <Box
+        sx={{
+          width: '40px',
+          height: '40px',
+          borderRadius: '50%',
+          backgroundColor: primitiveColors.teal,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontFamily: typographyVariants.avatar.initialsMd.fontFamily,
+          fontSize: `${typographyVariants.avatar.initialsMd.fontSize}px`,
+          fontWeight: typographyVariants.avatar.initialsMd.fontWeight,
+          lineHeight: `${typographyVariants.avatar.initialsMd.lineHeight}px`,
+          color: semanticColors.primary.contrastText,
+        }}
+      >
+        {userInitials}
+      </Box>
     </Box>
   );
 };
@@ -196,7 +215,7 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
       accountType = 'Cuenta principal',
       userInitials = 'P',
       width = 600,
-      smallScreen: _smallScreen = false,
+      smallScreen = false,
       ...props
     },
     ref
@@ -226,9 +245,9 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
               display: 'flex',
               alignItems: 'center',
               paddingLeft: primitiveSpacing[1], // 8px
-              paddingRight: primitiveSpacing[3], // 24px
+              paddingRight: smallScreen ? primitiveSpacing[2] : primitiveSpacing[3], // 16px on small, 24px otherwise
               paddingY: 0,
-              minHeight: 64,
+              minHeight: smallScreen ? 56 : 64, // Smaller height on small screens
             }}
           >
             {/* Left Side: Menu + Logo */}
@@ -236,10 +255,10 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: primitiveSpacing[2], // 16px
+                gap: smallScreen ? primitiveSpacing[1] : primitiveSpacing[2], // 8px on small, 16px otherwise
                 flex: '1 1 0',
                 minWidth: 0,
-                minHeight: 64,
+                minHeight: smallScreen ? 56 : 64,
               }}
             >
               {showMenu && (
@@ -268,7 +287,11 @@ export const AppBar = React.forwardRef<HTMLDivElement, AppBarProps>(
                   width: '40px',
                   position: 'relative',
                   marginLeft: 'auto',
-                  marginRight: showUserAccount ? primitiveSpacing[3] : 0, // 24px gap before account stack
+                  marginRight: showUserAccount
+                    ? smallScreen
+                      ? primitiveSpacing[2]
+                      : primitiveSpacing[3]
+                    : 0, // 16px on small, 24px otherwise
                 }}
               >
                 <IconButton

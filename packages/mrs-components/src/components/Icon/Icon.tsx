@@ -201,7 +201,7 @@ const iconMap: Record<IconName, React.ComponentType<SvgIconProps>> = {
 export interface IconProps extends Omit<SvgIconProps, 'children' | 'color' | 'fontSize'> {
   /**
    * The name of the icon to display
-   * @default 'ChevronLeftRounded'
+   * @default 'AddRounded'
    */
   name?: IconName;
   /**
@@ -230,7 +230,7 @@ export interface IconProps extends Omit<SvgIconProps, 'children' | 'color' | 'fo
  * ```
  */
 export const Icon = React.forwardRef<React.ElementRef<'svg'>, IconProps>(
-  ({ name = 'ChevronLeftRounded', color, fontSize, ...props }, ref) => {
+  ({ name = 'AddRounded', color, fontSize, ...props }, ref) => {
     const IconComponent = iconMap[name];
 
     const iconProps: SvgIconOwnProps = {
@@ -246,7 +246,7 @@ export const Icon = React.forwardRef<React.ElementRef<'svg'>, IconProps>(
 
     if (!IconComponent) {
       console.warn(`Icon "${name}" not found. Using default icon.`);
-      const DefaultIcon = iconMap.ChevronLeftRounded;
+      const DefaultIcon = iconMap.AddRounded;
       return <DefaultIcon ref={ref} {...iconProps} />;
     }
 

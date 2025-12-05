@@ -13,18 +13,22 @@ import {
   Checkbox,
   Radio,
   Select,
+  Autocomplete,
   Tooltip,
   Divider,
   LinearProgress,
   Accordion,
+  AccordionGroup,
   Icon,
   Stepper,
   FileUpload,
   Link,
+  List,
+  ListItem,
   theme,
 } from '@mrs/components';
 import { ThemeProvider } from '@mui/material/styles';
-import { Toolbar } from '@mui/material';
+import { AppBar as MuiAppBar, Toolbar } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
@@ -33,17 +37,19 @@ function App() {
   const [selectValue, setSelectValue] = useState('');
   const [activeStep, setActiveStep] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [autocompleteValue, setAutocompleteValue] = useState(null);
+  const [expandedAccordion, setExpandedAccordion] = useState(null);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="static">
+      <MuiAppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             MRS UI Design System
           </Typography>
         </Toolbar>
-      </AppBar>
+      </MuiAppBar>
       <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
         <Typography variant="h3" gutterBottom>
           MRS UI Design System
@@ -107,6 +113,21 @@ function App() {
                 { value: 'ar', label: 'Argentina' },
                 { value: 'fr', label: 'Segundo' },
                 { value: 'cl', label: 'Chile' },
+              ]}
+              fullWidth
+            />
+            <Autocomplete
+              label="Search Country"
+              value={autocompleteValue}
+              onChange={(event, newValue) => setAutocompleteValue(newValue)}
+              options={[
+                { value: 'ar', label: 'Argentina' },
+                { value: 'br', label: 'Brazil' },
+                { value: 'cl', label: 'Chile' },
+                { value: 'co', label: 'Colombia' },
+                { value: 'mx', label: 'Mexico' },
+                { value: 'pe', label: 'Peru' },
+                { value: 'uy', label: 'Uruguay' },
               ]}
               fullWidth
             />
@@ -194,21 +215,81 @@ function App() {
             Accordion
           </Typography>
           <div style={{ marginTop: '1rem' }}>
-            <Accordion title="Section 1">
+            <Accordion summary="Section 1">
               <Typography>
                 This is the content of section 1. You can put any content here.
               </Typography>
             </Accordion>
-            <Accordion title="Section 2">
+            <Accordion summary="Section 2">
               <Typography>
                 This is the content of section 2 with more detailed information.
               </Typography>
             </Accordion>
-            <Accordion title="Section 3">
+            <Accordion summary="Section 3">
               <Typography>
                 This is the content of section 3. Accordions are great for FAQs!
               </Typography>
             </Accordion>
+          </div>
+        </Paper>
+
+        {/* AccordionGroup Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Accordion Group
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Multiple accordions with controlled expansion (only one open at a time)
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            <AccordionGroup
+              expanded={expandedAccordion}
+              onChange={(id) => setExpandedAccordion(id)}
+              items={[
+                {
+                  id: 'panel1',
+                  title: 'What is MRS Design System?',
+                  content: 'MRS Design System is a comprehensive UI component library built on Material-UI with custom design tokens and theming.',
+                },
+                {
+                  id: 'panel2',
+                  title: 'How do I install it?',
+                  content: 'You can install it via npm: npm install @mrs/components. Then import the components you need.',
+                },
+                {
+                  id: 'panel3',
+                  title: 'Is it customizable?',
+                  content: 'Yes! All components use design tokens and can be customized through the theme configuration.',
+                },
+              ]}
+            />
+          </div>
+        </Paper>
+
+        {/* List Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Lists
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            <List>
+              <ListItem>
+                <Icon name="CheckRounded" color="success" />
+                <Typography style={{ marginLeft: '1rem' }}>Item 1 - Completed task</Typography>
+              </ListItem>
+              <ListItem>
+                <Icon name="CheckRounded" color="success" />
+                <Typography style={{ marginLeft: '1rem' }}>Item 2 - Another completed task</Typography>
+              </ListItem>
+              <ListItem>
+                <Icon name="ErrorOutlineRounded" color="warning" />
+                <Typography style={{ marginLeft: '1rem' }}>Item 3 - Pending task</Typography>
+              </ListItem>
+              <ListItem>
+                <Icon name="InfoRounded" color="info" />
+                <Typography style={{ marginLeft: '1rem' }}>Item 4 - Information item</Typography>
+              </ListItem>
+            </List>
           </div>
         </Paper>
 

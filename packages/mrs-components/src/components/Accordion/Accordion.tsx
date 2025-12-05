@@ -80,7 +80,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
       summary = 'Typography',
       children,
       disabled = false,
-      expanded = false,
+      expanded: controlledExpanded,
       onChange,
       firstOfType = false,
       lastOfType = false,
@@ -93,6 +93,13 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
     const theme = useTheme();
     const content = instance || children;
 
+    // Internal state for uncontrolled mode
+    const [internalExpanded, setInternalExpanded] = React.useState(false);
+
+    // Use controlled value if provided, otherwise use internal state
+    const isControlled = controlledExpanded !== undefined;
+    const expanded = isControlled ? controlledExpanded : internalExpanded;
+
     // Determine border radius based on position
     const borderRadius = firstOfType
       ? `${primitiveRadius.md}px ${primitiveRadius.md}px 0 0`
@@ -101,7 +108,15 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
         : '0';
 
     const handleChange = (event: React.SyntheticEvent, isExpanded: boolean) => {
-      if (!disabled && onChange) {
+      if (disabled) return;
+
+      // Update internal state if uncontrolled
+      if (!isControlled) {
+        setInternalExpanded(isExpanded);
+      }
+
+      // Call onChange callback if provided
+      if (onChange) {
         onChange(event, isExpanded);
       }
     };
