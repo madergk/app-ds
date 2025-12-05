@@ -24,10 +24,6 @@ export const primitiveColors = {
   teal: '#009999',
   black: '#000000',
   white: '#ffffff',
-  // Preservado del archivo original (no está en Tokens Studio)
-  deepPurple: {
-    500: '#673ab7',
-  },
 } as const;
 
 export const primitiveTypography = {

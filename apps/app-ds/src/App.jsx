@@ -25,6 +25,16 @@ import {
   Link,
   List,
   ListItem,
+  Input,
+  OutlinedInput,
+  FilledInput,
+  InputBase,
+  InputAdornment,
+  FormControl,
+  FormLabel,
+  FormHelperText,
+  FormGroup,
+  FormControlLabel,
   theme,
 } from '@mrs/components';
 import { ThemeProvider } from '@mui/material/styles';
@@ -46,13 +56,13 @@ function App() {
       <MuiAppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            MRS UI Design System
+            MRS UI System
           </Typography>
         </Toolbar>
       </MuiAppBar>
       <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
         <Typography variant="h3" gutterBottom>
-          MRS UI Design System
+          MRS UI System
         </Typography>
         <Typography variant="body1" color="textSecondary" paragraph>
           Comprehensive Component Library built on Material-UI
@@ -208,6 +218,94 @@ function App() {
             <LinearProgress variant="indeterminate" />
           </div>
         </Paper>
+
+        {/* Form Components with FormControl */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Form Components & Variants
+          </Typography>
+          <div style={{ display: 'grid', gap: '2rem', marginTop: '1rem' }}>
+            <FormControl fullWidth>
+              <FormLabel>Standard Input</FormLabel>
+              <Input placeholder="Enter text here" />
+              <FormHelperText>This is a standard input variant</FormHelperText>
+            </FormControl>
+
+            <FormControl fullWidth variant="outlined">
+              <FormLabel>Outlined Input</FormLabel>
+              <OutlinedInput placeholder="Enter text here" />
+              <FormHelperText>This is an outlined input variant</FormHelperText>
+            </FormControl>
+
+            <FormControl fullWidth variant="filled">
+              <FormLabel>Filled Input</FormLabel>
+              <FilledInput placeholder="Enter text here" />
+              <FormHelperText>This is a filled input variant</FormHelperText>
+            </FormControl>
+
+            <FormControl fullWidth>
+              <FormLabel>Input with Adornment</FormLabel>
+              <OutlinedInput
+                placeholder="Amount"
+                startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                endAdornment={<InputAdornment position="end">.00</InputAdornment>}
+              />
+              <FormHelperText>Input with start and end adornments</FormHelperText>
+            </FormControl>
+
+            <FormControl fullWidth>
+              <FormLabel>Input with Icon Adornment</FormLabel>
+              <OutlinedInput
+                placeholder="Search..."
+                startAdornment={
+                  <InputAdornment position="start">
+                    <Icon name="SearchRounded" />
+                  </InputAdornment>
+                }
+              />
+              <FormHelperText>Input with icon adornment</FormHelperText>
+            </FormControl>
+
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Options</FormLabel>
+              <FormGroup>
+                <FormControlLabel
+                  control={<Checkbox defaultChecked />}
+                  label="Option 1"
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Option 2"
+                />
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Option 3 (disabled)"
+                  disabled
+                />
+              </FormGroup>
+              <FormHelperText>Select multiple options</FormHelperText>
+            </FormControl>
+          </div>
+        </Paper>
+
+        {/* MRS AppBar Component */}
+        {/* <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            MRS AppBar Component
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Custom AppBar with MiREDSALUD branding, notifications, and user account
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            <AppBar
+              onMenuClick={() => console.log('Menu clicked')}
+              onNotificationClick={() => console.log('Notification clicked')}
+              userName="Juan Pérez"
+              accountType="Administrador"
+              userInitials="JP"
+            />
+          </div>
+        </Paper> */}
 
         {/* Accordion Section */}
         <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>

@@ -19,12 +19,6 @@
       "type": "color",
       "description": "Alternative teal shade"
     },
-    "deepPurple": {
-      "500": {
-        "value": "#673ab7",
-        "type": "color"
-      }
-    },
     "black": {
       "value": "#000000",
       "type": "color"
