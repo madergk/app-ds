@@ -1,9 +1,11 @@
-// MRS Design System Theme
-// This will be populated with custom theme configuration
+/**
+ * Theme Exports
+ *
+ * Central export point for all theme-related code
+ */
 
-export const mrsTheme = {
-  // Theme configuration will go here
-  // Example: colors, typography, spacing, etc.
-};
-
-export default mrsTheme;
+export { theme, type AppTheme } from './theme';
+export * from './designTokens';
+export * from './colorUtils';
+// colorVariables re-exporta algunos tokens de designTokens, usar designTokens como fuente principal
+export { colorVariables } from './colorVariables';

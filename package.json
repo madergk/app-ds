@@ -12,7 +12,10 @@
     "dev:lib": "npm run dev --workspace=@mrs/components",
     "build:lib": "npm run build --workspace=@mrs/components",
     "build:app": "npm run build --workspace=app-ds",
-    "start": "npm run start --workspace=app-ds"
+    "start": "npm run start --workspace=app-ds",
+    "deploy": "./deploy.sh",
+    "deploy:vercel": "npx vercel --prod",
+    "deploy:gh-pages": "cd apps/app-ds && npm run deploy"
   },
   "devDependencies": {},
   "engines": {
