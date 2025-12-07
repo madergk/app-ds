@@ -76,7 +76,7 @@ function AppV2() {
           minHeight: '64px'
         }}>
           <Typography variant="h6" component="div">
-            MRS Design System v2.0
+            MRS UI System v2.0
           </Typography>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <Chip label="v0.2.0" color="primary" size="small" />
@@ -89,7 +89,7 @@ function AppV2() {
 
       <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
         <Typography variant="h3" gutterBottom>
-          MRS Design System
+          MRS UI System
         </Typography>
         <Typography variant="body1" color="textSecondary" paragraph>
           100% Pure MRS Components - No Direct MUI Imports
@@ -191,10 +191,10 @@ function AppV2() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary">
+                <Button variant="contained" size="small" color="primary">
                   Learn More
                 </Button>
-                <Button size="small" color="secondary">
+                <Button variant="outlined" size="small" color="primary">
                   Share
                 </Button>
               </CardActions>
