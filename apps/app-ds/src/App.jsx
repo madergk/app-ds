@@ -17,6 +17,7 @@ import {
   Tooltip,
   Divider,
   LinearProgress,
+  CircularProgress,
   Accordion,
   AccordionGroup,
   Icon,
@@ -35,6 +36,19 @@ import {
   FormHelperText,
   FormGroup,
   FormControlLabel,
+  Alert,
+  Chip,
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Snackbar,
+  Backdrop,
+  Skeleton,
   theme,
 } from '@mrs/components';
 import { ThemeProvider } from '@mui/material/styles';
@@ -49,6 +63,9 @@ function App() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [autocompleteValue, setAutocompleteValue] = useState(null);
   const [expandedAccordion, setExpandedAccordion] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [backdropOpen, setBackdropOpen] = useState(false);
 
   return (
     <ThemeProvider theme={theme}>
@@ -466,6 +483,219 @@ function App() {
           </div>
         </Paper>
 
+        {/* Alert Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Alerts
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Display important messages with different severity levels
+          </Typography>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+            <Alert severity="success">This is a success alert!</Alert>
+            <Alert severity="info">This is an info alert with some information.</Alert>
+            <Alert severity="warning">This is a warning alert - please be careful!</Alert>
+            <Alert severity="error">This is an error alert - something went wrong!</Alert>
+            <Alert severity="success" variant="filled">Success with filled variant</Alert>
+            <Alert severity="info" variant="outlined">Info with outlined variant</Alert>
+          </div>
+        </Paper>
+
+        {/* Chip Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Chips
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Compact elements for tags, filters, and categories
+          </Typography>
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+            <Chip label="Default" />
+            <Chip label="Primary" color="primary" />
+            <Chip label="Secondary" color="secondary" />
+            <Chip label="Success" color="success" />
+            <Chip label="Error" color="error" />
+            <Chip label="Deletable" color="primary" onDelete={() => {}} />
+            <Chip label="Clickable" color="secondary" onClick={() => alert('Chip clicked!')} />
+            <Chip label="Outlined" variant="outlined" />
+            <Chip label="Small" size="small" color="primary" />
+          </div>
+        </Paper>
+
+        {/* Card Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Cards
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Content containers with elevation
+          </Typography>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+            <Card elevation={3}>
+              <CardHeader
+                title="Card Title"
+                subheader="Card Subheader"
+              />
+              <CardContent>
+                <Typography variant="body2" color="textSecondary">
+                  This is the main content of the card. You can put any information here.
+                  Cards are great for organizing content into distinct sections.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" color="primary">
+                  Learn More
+                </Button>
+                <Button size="small" color="secondary">
+                  Share
+                </Button>
+              </CardActions>
+            </Card>
+
+            <Card variant="outlined">
+              <CardHeader
+                title="Outlined Card"
+                subheader="With border"
+              />
+              <CardContent>
+                <Typography variant="body2" color="textSecondary">
+                  This card uses the outlined variant instead of elevation.
+                  Perfect for a flatter design aesthetic.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" variant="outlined">
+                  Action
+                </Button>
+              </CardActions>
+            </Card>
+          </div>
+        </Paper>
+
+        {/* Dialog Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Dialog
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Modal dialogs for important user interactions
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            <Button variant="contained" onClick={() => setDialogOpen(true)}>
+              Open Dialog
+            </Button>
+            <Dialog
+              open={dialogOpen}
+              onClose={() => setDialogOpen(false)}
+              maxWidth="sm"
+              fullWidth
+            >
+              <DialogTitle>Dialog Title</DialogTitle>
+              <DialogContent>
+                <Typography>
+                  This is a dialog window. It can contain any content you need,
+                  such as forms, confirmations, or important messages.
+                </Typography>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={() => setDialogOpen(false)}>Cancel</Button>
+                <Button variant="contained" onClick={() => setDialogOpen(false)}>
+                  Confirm
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </div>
+        </Paper>
+
+        {/* Snackbar Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Snackbar
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Brief notifications at the bottom of the screen
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            <Button variant="contained" onClick={() => setSnackbarOpen(true)}>
+              Show Snackbar
+            </Button>
+            <Snackbar
+              open={snackbarOpen}
+              autoHideDuration={3000}
+              onClose={() => setSnackbarOpen(false)}
+              message="This is a snackbar notification!"
+            />
+          </div>
+        </Paper>
+
+        {/* Progress Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Progress Indicators
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Linear and circular progress indicators
+          </Typography>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1rem' }}>
+            <div>
+              <Typography variant="subtitle2" gutterBottom>Linear Progress</Typography>
+              <LinearProgress />
+              <LinearProgress color="secondary" style={{ marginTop: '1rem' }} />
+            </div>
+            <div>
+              <Typography variant="subtitle2" gutterBottom>Circular Progress</Typography>
+              <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+                <CircularProgress />
+                <CircularProgress color="secondary" />
+                <CircularProgress color="success" size={30} />
+                <CircularProgress color="error" size={50} />
+              </div>
+            </div>
+          </div>
+        </Paper>
+
+        {/* Backdrop Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Backdrop
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Dark overlay for loading states or modals
+          </Typography>
+          <div style={{ marginTop: '1rem' }}>
+            <Button variant="contained" onClick={() => setBackdropOpen(true)}>
+              Show Backdrop
+            </Button>
+            <Backdrop
+              open={backdropOpen}
+              onClick={() => setBackdropOpen(false)}
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>
+          </div>
+        </Paper>
+
+        {/* Skeleton Section */}
+        <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" gutterBottom>
+            Skeleton
+          </Typography>
+          <Typography variant="body2" color="textSecondary" paragraph>
+            Loading placeholders with various shapes
+          </Typography>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+            <Skeleton variant="text" width="80%" />
+            <Skeleton variant="text" width="60%" />
+            <Skeleton variant="rectangular" width="100%" height={118} />
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              <Skeleton variant="circular" width={40} height={40} />
+              <Skeleton variant="text" width="70%" />
+            </div>
+            <Skeleton variant="rounded" width="100%" height={60} />
+          </div>
+        </Paper>
+
         {/* Typography Section */}
         <Paper elevation={2} style={{ padding: '2rem', marginBottom: '2rem' }}>
           <Typography variant="h4" gutterBottom>
@@ -487,7 +717,7 @@ function App() {
         </Paper>
 
         <Typography variant="body2" color="textSecondary" align="center" style={{ marginTop: '3rem' }}>
-          Built with MRS Design System v0.1.0 • Powered by Material-UI
+          Built with MRS Design System v0.2.0 • Powered by Material-UI • 42 Components
         </Typography>
       </div>
     </ThemeProvider>

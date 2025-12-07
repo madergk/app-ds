@@ -105,6 +105,9 @@ export type { StepperProps, StepperStep } from './components/Stepper';
 export { LinearProgress } from './components/LinearProgress';
 export type { LinearProgressProps } from './components/LinearProgress';
 
+export { CircularProgress } from './components/CircularProgress';
+export type { CircularProgressProps } from './components/CircularProgress';
+
 // Typography & Content
 export { Typography } from './components/Typography';
 export type { TypographyProps } from './components/Typography';
@@ -115,6 +118,18 @@ export type { LinkProps } from './components/Link';
 // Layout Components
 export { Paper } from './components/Paper';
 export type { PaperProps } from './components/Paper';
+
+export { Card } from './components/Card';
+export type { CardProps } from './components/Card';
+
+export { CardHeader } from './components/CardHeader';
+export type { CardHeaderProps } from './components/CardHeader';
+
+export { CardContent } from './components/CardContent';
+export type { CardContentProps } from './components/CardContent';
+
+export { CardActions } from './components/CardActions';
+export type { CardActionsProps } from './components/CardActions';
 
 export { Divider } from './components/Divider';
 export type { DividerProps } from './components/Divider';
@@ -132,15 +147,42 @@ export type { BadgeProps } from './components/Badge';
 export { Avatar } from './components/Avatar';
 export type { AvatarProps } from './components/Avatar';
 
+export { Chip } from './components/Chip';
+export type { ChipProps } from './components/Chip';
+
 // Feedback & Overlay
 export { Tooltip } from './components/Tooltip';
 export type { TooltipProps } from './components/Tooltip';
+
+export { Alert } from './components/Alert';
+export type { AlertProps } from './components/Alert';
+
+export { Snackbar } from './components/Snackbar';
+export type { SnackbarProps } from './components/Snackbar';
+
+export { Backdrop } from './components/Backdrop';
+export type { BackdropProps } from './components/Backdrop';
+
+export { Skeleton } from './components/Skeleton';
+export type { SkeletonProps } from './components/Skeleton';
 
 export { Accordion } from './components/Accordion';
 export type { AccordionProps } from './components/Accordion';
 
 export { AccordionGroup } from './components/AccordionGroup';
 export type { AccordionGroupProps, AccordionItem } from './components/AccordionGroup';
+
+export { Dialog } from './components/Dialog';
+export type { DialogProps } from './components/Dialog';
+
+export { DialogTitle } from './components/DialogTitle';
+export type { DialogTitleProps } from './components/DialogTitle';
+
+export { DialogContent } from './components/DialogContent';
+export type { DialogContentProps } from './components/DialogContent';
+
+export { DialogActions } from './components/DialogActions';
+export type { DialogActionsProps } from './components/DialogActions';
 
 // App Structure
 export { AppBar } from './components/AppBar';
