@@ -156,6 +156,7 @@ export const semanticColors = {
   action: {
     active: '#0000008f', // rgba with opacity
     selected: '#0000001f', // rgba with opacity
+    hover: '#0000000a', // rgba with opacity for hover state
   },
   divider: '#0000001f', // rgba with opacity
 } as const;
@@ -293,6 +294,12 @@ export const typographyVariants = {
       fontFamily: primitiveTypography.fontFamily.base,
       fontSize: primitiveTypography.fontSize['0.875rem'],
       fontWeight: primitiveTypography.fontWeight.medium,
+      lineHeight: 24,
+    },
+    body: {
+      fontFamily: primitiveTypography.fontFamily.base,
+      fontSize: primitiveTypography.fontSize['0.875rem'],
+      fontWeight: primitiveTypography.fontWeight.regular,
       lineHeight: 24,
     },
   },

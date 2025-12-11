@@ -48,6 +48,12 @@ export type {
 export { Button } from './components/Button';
 export type { ButtonProps } from './components/Button';
 
+export { ButtonGroup } from './components/ButtonGroup';
+export type { ButtonGroupProps } from './components/ButtonGroup';
+
+export { Fab } from './components/Fab';
+export type { FabProps } from './components/Fab';
+
 export { Checkbox } from './components/Checkbox';
 export type { CheckboxProps } from './components/Checkbox';
 
@@ -62,6 +68,9 @@ export type { SelectProps } from './components/Select';
 
 export { Autocomplete } from './components/Autocomplete';
 export type { AutocompleteProps } from './components/Autocomplete';
+
+export { Slider } from './components/Slider';
+export type { SliderProps } from './components/Slider';
 
 // Form Inputs
 export { TextField } from './components/TextField';
@@ -102,6 +111,15 @@ export type { FormControlLabelProps } from './components/FormControlLabel';
 export { Stepper } from './components/Stepper';
 export type { StepperProps, StepperStep } from './components/Stepper';
 
+export { Tabs } from './components/Tabs';
+export type { TabsProps } from './components/Tabs';
+
+export { Tab } from './components/Tabs';
+export type { TabProps } from './components/Tabs';
+
+export { Breadcrumbs } from './components/Breadcrumbs';
+export type { BreadcrumbsProps } from './components/Breadcrumbs';
+
 export { LinearProgress } from './components/LinearProgress';
 export type { LinearProgressProps } from './components/LinearProgress';
 
@@ -116,6 +134,19 @@ export { Link } from './components/Link';
 export type { LinkProps } from './components/Link';
 
 // Layout Components
+// Utility layout components (direct MUI exports)
+export { default as Box } from '@mui/material/Box';
+export type { BoxProps } from '@mui/material/Box';
+
+export { default as Stack } from '@mui/material/Stack';
+export type { StackProps } from '@mui/material/Stack';
+
+export { default as Container } from '@mui/material/Container';
+export type { ContainerProps } from '@mui/material/Container';
+
+export { Grid2 } from './components/Grid2';
+export type { Grid2Props } from './components/Grid2';
+
 export { Paper } from './components/Paper';
 export type { PaperProps } from './components/Paper';
 
@@ -131,6 +162,9 @@ export type { CardContentProps } from './components/CardContent';
 export { CardActions } from './components/CardActions';
 export type { CardActionsProps } from './components/CardActions';
 
+export { CardMedia } from './components/Card';
+export type { CardMediaProps } from './components/Card';
+
 export { Divider } from './components/Divider';
 export type { DividerProps } from './components/Divider';
 
@@ -139,6 +173,18 @@ export type { ListProps } from './components/List';
 
 export { ListItem } from './components/ListItem';
 export type { ListItemProps } from './components/ListItem';
+
+export { ListItemButton } from './components/ListItemButton';
+export type { ListItemButtonProps } from './components/ListItemButton';
+
+export { ListItemIcon } from './components/ListItemIcon';
+export type { ListItemIconProps } from './components/ListItemIcon';
+
+export { ListItemText } from './components/ListItemText';
+export type { ListItemTextProps } from './components/ListItemText';
+
+export { ListItemAvatar } from './components/ListItemAvatar';
+export type { ListItemAvatarProps } from './components/ListItemAvatar';
 
 // Data Display
 export { Badge } from './components/Badge';
@@ -149,6 +195,28 @@ export type { AvatarProps } from './components/Avatar';
 
 export { Chip } from './components/Chip';
 export type { ChipProps } from './components/Chip';
+
+export { Rating } from './components/Rating';
+export type { RatingProps } from './components/Rating';
+
+// Table Components
+export { Table } from './components/Table';
+export type { TableProps } from './components/Table';
+
+export { TableContainer } from './components/Table';
+export type { TableContainerProps } from './components/Table';
+
+export { TableHead } from './components/Table';
+export type { TableHeadProps } from './components/Table';
+
+export { TableBody } from './components/Table';
+export type { TableBodyProps } from './components/Table';
+
+export { TableRow } from './components/Table';
+export type { TableRowProps } from './components/Table';
+
+export { TableCell } from './components/Table';
+export type { TableCellProps } from './components/Table';
 
 // Feedback & Overlay
 export { Tooltip } from './components/Tooltip';
@@ -183,6 +251,18 @@ export type { DialogContentProps } from './components/DialogContent';
 
 export { DialogActions } from './components/DialogActions';
 export type { DialogActionsProps } from './components/DialogActions';
+
+export { Drawer } from './components/Drawer';
+export type { DrawerProps } from './components/Drawer';
+
+export { Menu } from './components/Menu';
+export type { MenuProps } from './components/Menu';
+
+export { MenuItem } from './components/Menu';
+export type { MenuItemProps } from './components/Menu';
+
+export { MenuList } from './components/Menu';
+export type { MenuListProps } from './components/Menu';
 
 // App Structure
 export { AppBar } from './components/AppBar';

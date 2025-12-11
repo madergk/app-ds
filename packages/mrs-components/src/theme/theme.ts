@@ -406,6 +406,244 @@ const themeOptions: ThemeOptions = {
         },
       },
     },
+
+    // Fab (Floating Action Button) component customization
+    MuiFab: {
+      defaultProps: {
+        disableRipple: false,
+      },
+      styleOverrides: {
+        root: {
+          fontFamily: typographyVariants.button.medium.fontFamily,
+          fontSize: `${typographyVariants.button.medium.fontSize}px`,
+          fontWeight: typographyVariants.button.medium.fontWeight,
+          textTransform: 'none',
+          boxShadow: 'none',
+        },
+      },
+    },
+
+    // ButtonGroup component customization
+    MuiButtonGroup: {
+      defaultProps: {
+        disableElevation: true,
+      },
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+        },
+      },
+    },
+
+    // Breadcrumbs component customization
+    MuiBreadcrumbs: {
+      styleOverrides: {
+        li: {
+          fontFamily: typographyVariants.body2.fontFamily,
+          fontSize: `${typographyVariants.body2.fontSize}px`,
+          fontWeight: typographyVariants.body2.fontWeight,
+        },
+      },
+    },
+
+    // Slider component customization
+    MuiSlider: {
+      styleOverrides: {
+        root: {
+          color: semanticColors.primary.main,
+        },
+        thumb: {
+          '&:hover, &.Mui-focusVisible': {
+            boxShadow: `0 0 0 8px ${semanticColors.primary.states.hover}`,
+          },
+        },
+      },
+    },
+
+    // Grid component customization
+    MuiGrid: {
+      defaultProps: {
+        spacing: 2,
+      },
+    },
+
+    // Menu component customization
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          borderRadius: primitiveRadius.md,
+        },
+      },
+    },
+
+    // MenuItem component customization
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontFamily: typographyVariants.body1.fontFamily,
+          fontSize: `${typographyVariants.body1.fontSize}px`,
+          fontWeight: typographyVariants.body1.fontWeight,
+          '&.Mui-selected': {
+            backgroundColor: semanticColors.action.selected,
+          },
+        },
+      },
+    },
+
+    // MenuList component customization
+    MuiMenuList: {
+      styleOverrides: {
+        root: {
+          padding: `${primitiveRadius.md / 2}px 0`,
+        },
+      },
+    },
+
+    // Tabs component customization
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          borderBottom: `1px solid ${semanticColors.divider}`,
+        },
+        indicator: {
+          backgroundColor: semanticColors.primary.main,
+        },
+      },
+    },
+
+    // Tab component customization
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontFamily: typographyVariants.button.medium.fontFamily,
+          fontSize: `${typographyVariants.button.medium.fontSize}px`,
+          fontWeight: typographyVariants.button.medium.fontWeight,
+          textTransform: 'none',
+          '&.Mui-selected': {
+            color: semanticColors.primary.main,
+          },
+        },
+      },
+    },
+
+    // Drawer component customization
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          borderRadius: 0,
+        },
+      },
+    },
+
+    // Table component customization (additional overrides)
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          borderCollapse: 'collapse',
+        },
+      },
+    },
+
+    MuiTableContainer: {
+      styleOverrides: {
+        root: {
+          borderRadius: primitiveRadius.md,
+        },
+      },
+    },
+
+    MuiTableBody: {
+      styleOverrides: {
+        root: {
+          '& .MuiTableCell-body': {
+            fontFamily: typographyVariants.table.body.fontFamily,
+            fontSize: `${typographyVariants.table.body.fontSize}px`,
+            fontWeight: typographyVariants.table.body.fontWeight,
+            lineHeight: `${typographyVariants.table.body.lineHeight}px`,
+          },
+        },
+      },
+    },
+
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: semanticColors.action.hover,
+          },
+          '&.Mui-selected': {
+            backgroundColor: semanticColors.action.selected,
+          },
+        },
+      },
+    },
+
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          borderBottom: `1px solid ${semanticColors.divider}`,
+        },
+        head: {
+          fontWeight: typographyVariants.table.header.fontWeight,
+          color: semanticColors.text.primary,
+        },
+      },
+    },
+
+    // CardMedia component customization
+    MuiCardMedia: {
+      styleOverrides: {
+        root: {
+          borderRadius: `${primitiveRadius.md}px ${primitiveRadius.md}px 0 0`,
+        },
+      },
+    },
+
+    // ListItem variants customization
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            backgroundColor: semanticColors.action.selected,
+          },
+          '&:hover': {
+            backgroundColor: semanticColors.action.hover,
+          },
+        },
+      },
+    },
+
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          color: semanticColors.text.primary,
+          minWidth: 40,
+        },
+      },
+    },
+
+    MuiListItemText: {
+      styleOverrides: {
+        primary: {
+          fontFamily: typographyVariants.body1.fontFamily,
+          fontSize: `${typographyVariants.body1.fontSize}px`,
+          fontWeight: typographyVariants.body1.fontWeight,
+        },
+        secondary: {
+          fontFamily: typographyVariants.body2.fontFamily,
+          fontSize: `${typographyVariants.body2.fontSize}px`,
+          fontWeight: typographyVariants.body2.fontWeight,
+        },
+      },
+    },
+
+    MuiListItemAvatar: {
+      styleOverrides: {
+        root: {
+          minWidth: 56,
+        },
+      },
+    },
   },
 };
 
